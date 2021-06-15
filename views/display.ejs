@@ -1,0 +1,33 @@
+<% if(db_rows_array.length > 0){%>
+
+
+
+<h1 style="font-style: italic; font-size: 50px;">Records Found</h1>
+
+<table border="2">
+    <tr>
+        <th>room_Id</th>
+        <th>room_type</th>
+        <th>room_details</th>
+        <th>room_price</th>
+        <th>Action</th>
+    </tr>
+    <% for(var i=0;i<db_rows_array.length;i++){ %>
+     <tr>
+        <td><%= db_rows_array[i].room_id %></td>
+        <td><%= db_rows_array[i].room_type %></th>
+        <td><%= db_rows_array[i].room_details %></td>
+        <td><%= db_rows_array[i].room_price %></td>
+        <td><a href='/edit/<%= db_rows_array[i].room_id %>'> Edit </a>|<a href='/delete/<%= db_rows_array[i].room_id %>'> Delete </a></td>
+
+     </tr>
+     <%}%>   
+
+</table>
+<a href="/add"><h1>Add records</h1></a>
+
+
+    <% }else{ %>
+             No records found
+
+        <% } %>
